@@ -1,0 +1,2 @@
+## Enforcing key rotation for user-managed keys every 90 days
+This policy audits key rotation for keys in Azure Key Vaults and checks if the rotation interval is less than or equal to 90 days. We can customize the interval and enforcement action as needed to align with your key rotation requirements.

@@ -1,0 +1,26 @@
+{
+    "mode": "All",
+    "parameters": {},
+    "displayName": "Key Rotation Policy",
+    "policyType": "Custom",
+    "description": "This policy enforces the rotation of user-managed keys every 90 days.",
+    "metadata": {
+        "category": "Security"
+    },
+    "policyRule": {
+        "if": {
+            "field": "type",
+            "equals": "Microsoft.KeyVault/vaults/keys"
+        },
+        "then": {
+            "effect": "auditIfNotExists",
+            "details": {
+                "type": "Microsoft.KeyVault/vaults/keys/rotate",
+                "existenceCondition": {
+                    "field": "Microsoft.KeyVault/vaults/keys/rotationInterval",
+                    "lessOrEquals": "P90D" 
+                }
+            }
+        }
+    }
+}
